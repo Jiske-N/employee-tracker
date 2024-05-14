@@ -15,16 +15,21 @@ JOIN department D ON R.department_id = D.id;
 -- add department
 INSERT INTO department (name)
 VALUES ('Legal');
+INSERT INTO department (name) VALUES ($1)
 
 -- add a role
 INSERT INTO role (title, salary, department_id)
 VALUES ('Lawyer', 190000, 4);
+INSERT INTO role (title, salary, department_id)
+VALUES (($1), ($2), ($3));
 
 -- add an employee
-       INSERT INTO employee (first_name, last_name, role_id, manager_id)
-       VALUES ('John', 'Doe', 1, NULL);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ('John', 'Doe', 1, NULL);
 
 -- update an employee - select an employee to update and their new role and this information is updated in the database
 UPDATE employee
 SET  = 3
 WHERE price = 2;
+
+"SELECT department.id FROM department WHERE department.name = $1"
