@@ -18,12 +18,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const main = async () => {
-  try {
-    const selection = await enquiry(menu);
-    const queryContent = await menuController(selection.menu);
-    console.table(queryContent);
-  } catch (error) {
-    console.log(error);
+  let loop = true;
+  while (loop) {
+    try {
+      const selection = await enquiry(menu);
+      if (selection.menu === "Quit") {
+        loop = false;
+      } else {
+        const response = await menuController(selection.menu);
+        console.table(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
