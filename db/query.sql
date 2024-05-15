@@ -35,3 +35,13 @@ WHERE price = 2;
 SELECT department.id 
 FROM department 
 WHERE department.name = $1
+
+-- stuff I'm currently working on
+SELECT E.id, E.first_name, E.last_name, R.title, D.name AS department 
+FROM employee E JOIN role R ON E.role_id = R.id 
+JOIN department D ON R.department_id = D.id
+WHERE d.id = $1
+
+UPDATE employee SET manager_id = $2 WHERE id = $1
+
+SELECT * FROM employee
