@@ -1,31 +1,24 @@
-// const { Pool } = require("pg");
-const express = require("express");
-const app = express();
 const enquiry = require("./lib/inquirer");
-const {
-  menu,
-  addDepartment,
-  addRole,
-  addEmployee,
-} = require("./lib/prompts.js");
+const { menuP } = require("./lib/prompts.js");
 const menuController = require("./lib/controller.js");
-const PORT = process.env.PORT || 3467;
-const pool = require("./lib/pool.js");
 
-// console.log(menu);
-// express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
+// main function which controls selection menu
 const main = async () => {
+  // loop funtionality while true
   let loop = true;
   while (loop) {
     try {
-      const selection = await enquiry(menu);
+      // prompt user with menu options
+      const selection = await enquiry(menuP);
+
+      // check to continue loop
       if (selection.menu === "Quit") {
         loop = false;
       } else {
+        // send response to controller to execute
         const response = await menuController(selection.menu);
+
+        // display final product. not all responses are tables but display fine nonetheless
         console.table(response);
       }
     } catch (error) {
@@ -35,7 +28,3 @@ const main = async () => {
 };
 
 main();
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
