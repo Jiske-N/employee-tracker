@@ -20,7 +20,7 @@ This project was designed for an employer to be able to track employee and job d
 
 ## Image
 
-![Image of usage](./public/assets/images/screenshot.png)
+![Image of usage](./assets/images/employeeTrackerScreenshot.png)
 
 ## Installation
 
@@ -34,6 +34,7 @@ This project was designed for an employer to be able to track employee and job d
 
 ## Usage
 
+- [Video Walkthrough](https://drive.google.com/file/d/1msKsnzdvUPr3sBZJ4UXZXnm0PdJDOju9/view?usp=sharing)
 - After completing all installation instructions navigate to the root folder in gitbash or similar and enter "npm start".
 - Use the arrow keys and keyboard to select different options.
 
