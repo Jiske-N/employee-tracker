@@ -1,27 +1,21 @@
 // const { Pool } = require("pg");
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 const enquiry = require("./lib/inquirer");
-const {
-  menu,
-  addDepartment,
-  addRole,
-  addEmployee,
-} = require("./lib/prompts.js");
+const { menuP } = require("./lib/prompts.js");
 const menuController = require("./lib/controller.js");
-const PORT = process.env.PORT || 3467;
-const pool = require("./lib/pool.js");
+// const PORT = process.env.PORT || 3467;
+// const pool = require("./lib/pool.js");
 
-// console.log(menu);
 // express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
 
 const main = async () => {
   let loop = true;
   while (loop) {
     try {
-      const selection = await enquiry(menu);
+      const selection = await enquiry(menuP);
       if (selection.menu === "Quit") {
         loop = false;
       } else {
@@ -36,6 +30,6 @@ const main = async () => {
 
 main();
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
