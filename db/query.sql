@@ -32,4 +32,6 @@ UPDATE employee
 SET  = 3
 WHERE price = 2;
 
-"SELECT department.id FROM department WHERE department.name = $1"
+SELECT department.id 
+FROM department 
+WHERE department.name = $1
